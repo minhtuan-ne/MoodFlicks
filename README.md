@@ -25,12 +25,12 @@ This project is inspired by Marc Lou's Mood2Movie.
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/yourusername/mood-flicks.git
-   Copy2. Navigate to the project directory:
+   git clone https://github.com/minhtuan-ne/MoodFlicks.git
+2. Navigate to the project directory:
    cd mood-flicks
-   Copy3. Install required packages:
+3. Install required packages:
    pip install -r requirements.txt
-   Copy4. Set up your TMDB API key:
+4. Set up your TMDB API key:
 
 - Sign up for an account at [https://www.themoviedb.org/](https://www.themoviedb.org/)
 - Get your API key from your account settings
@@ -40,9 +40,9 @@ This project is inspired by Marc Lou's Mood2Movie.
 
 1. Run the Flask application:
    python app.py
-   Copy2. Open a web browser and go to `http://localhost:8000`
-2. Select your time of day and mood
-3. Browse through movie recommendations
+2. Open a web browser and go to `http://localhost:8000`
+3. Select your time of day and mood
+4. Browse through movie recommendations
 
 ## Contributing
 
