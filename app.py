@@ -128,7 +128,7 @@ def movies():
         
         if daytime_db == "🌤 MORNING":
             if mood_db == "😁 HAPPY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=14,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=14,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -140,7 +140,7 @@ def movies():
                 length_db = len(response.json()['results'])
  
             if mood_db == "😌 RELAXED":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=12,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=12,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -152,7 +152,7 @@ def movies():
                 length_db = len(response.json()['results'])
             
             if mood_db == "🤧 SICK":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=16,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=16,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -164,7 +164,7 @@ def movies():
                 length_db = len(response.json()['results'])
             
             if mood_db == "🥰 ROMANTIC":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=10749,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10749,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -176,7 +176,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😥 SAD":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=18,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=18,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -188,7 +188,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😡 ANGRY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=28,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=28,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -200,7 +200,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😙 CHILL":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=10402,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10402,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -212,7 +212,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😂 HUMOROUS":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=9648,35")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=9648,35")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -227,7 +227,7 @@ def movies():
 
         if daytime_db == "☀️ NOON":
             if mood_db == "😁 HAPPY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=14,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=14,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -239,7 +239,7 @@ def movies():
                 length_db = len(response.json()['results'])
  
             if mood_db == "😌 RELAXED":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=12,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=12,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -251,7 +251,7 @@ def movies():
                 length_db = len(response.json()['results'])
             
             if mood_db == "🤧 SICK":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=16,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=16,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -263,7 +263,7 @@ def movies():
                 length_db = len(response.json()['results'])
             
             if mood_db == "🥰 ROMANTIC":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=10749,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10749,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -275,7 +275,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😥 SAD":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=18,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=18,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -287,7 +287,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😡 ANGRY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=28,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=28,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -299,7 +299,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😙 CHILL":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=10402,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10402,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -311,7 +311,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😂 HUMOROUS":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=9648,28")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=9648,28")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -326,7 +326,7 @@ def movies():
 
         if daytime_db == "🌙 NIGHT":
             if mood_db == "😁 HAPPY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=14,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=14,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -338,7 +338,7 @@ def movies():
                 length_db = len(response.json()['results'])
  
             if mood_db == "😌 RELAXED":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=12,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=12,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -350,7 +350,7 @@ def movies():
                 length_db = len(response.json()['results'])
             
             if mood_db == "🤧 SICK":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=16,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=16,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -362,7 +362,7 @@ def movies():
                 length_db = len(response.json()['results'])
             
             if mood_db == "🥰 ROMANTIC":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=10749,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10749,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -374,7 +374,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😥 SAD":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=18,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=18,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -386,7 +386,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😡 ANGRY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=28,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=28,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -398,7 +398,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😙 CHILL":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=10402,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10402,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
@@ -410,7 +410,7 @@ def movies():
                 length_db = len(response.json()['results'])
 
             if mood_db == "😂 HUMOROUS":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=fbd7b2c90770cfc9a175e771b70c69ef&with_genres=9648,53")
+                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=9648,53")
                 title_db = response.json()['results'][i]['original_title']
                 date_db = response.json()['results'][i]['release_date']
                 poster_db = response.json()['results'][i]['poster_path']
