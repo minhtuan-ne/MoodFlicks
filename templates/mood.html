@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div class="slogan">
+    <h1>Feel. Find. Flicks: Your Mood, Your Movies.</h1>
+    <h4>How are you feeling now?</h4>
+    <h4>Daytime: {{daytime}}</h4>
+</div>
+
+<div class="center slogan container">
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="😁 HAPPY">
+            <button class="button text-in-box" type=submit>😁 HAPPY</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="😌 RELAXED">
+            <button class="button text-in-box" type=submit>😌 RELAXED</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="🤧 SICK">
+            <button class="button text-in-box" type=submit>🤧 SICK</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="😂 HUMOROUS">
+            <button class="button text-in-box" type=submit>😂 HUMOROUS</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="😥 SAD">
+            <button class="button text-in-box" type=submit>😥 SAD</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="😙 CHILL">
+            <button class="button text-in-box" type=submit>😙 CHILL</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="😡 ANGRY">
+            <button class="button text-in-box" type=submit>😡 ANGRY</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/movies" method="post">
+            <input type="hidden" name="mood" value="🥰 ROMANTIC">
+            <button class="button text-in-box" type=submit>🥰 ROMANTIC</button>
+        </form>
+    </div>
+</div>
+
+    
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div class="slogan">
+    <h1>Feel. Find. Flicks: Your Mood, Your Movies.</h1>
+    <h4>What’s your daytime?</h4>
+</div>
+
+<div class="center slogan container">
+    <div>
+        <form action="/mood" method="post">
+            <input type="hidden" name="daytime" value="🌤 MORNING">
+            <button class="button text-in-box" type=submit>🌤 MORNING</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/mood" method="post">
+            <input type="hidden" name="daytime" value="☀️ NOON">
+            <button class="button text-in-box" type=submit>☀️ NOON</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/mood" method="post">
+            <input type="hidden" name="daytime" value="🌙 NIGHT">
+            <button class="button text-in-box" type=submit>🌙 NIGHT</button>
+        </form>
+    </div>
+</div>
+
+    
+{% endblock %}
