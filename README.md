@@ -10,7 +10,6 @@ This project is inspired by Marc Lou's Mood2Movie.
 - User input for mood and time of day
 - Movie recommendations based on user input
 - Display of movie details including title, release date, genres, and description
-- Responsive design for various screen sizes
 
 ## Technologies Used
 
@@ -34,7 +33,7 @@ This project is inspired by Marc Lou's Mood2Movie.
 
 - Sign up for an account at [https://www.themoviedb.org/](https://www.themoviedb.org/)
 - Get your API key from your account settings
-- Replace `your_api_key_here` in the code with your actual API key
+- Create a .env file and insert your TMDB_API_KEY = 'here_is_your_api_key'
 
 ## Usage
 

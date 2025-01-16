@@ -1,21 +1,21 @@
 import os
 import sqlite3
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, render_template, request
 import requests
+from dotenv import load_dotenv
 
-
-# Remember to gitignore the api key if want to upload github
-
-# Configure application
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-# Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
+load_dotenv
+
+TMDB_API_KEY = os.environ.get("TMDB_API_KEY")
+
 #SQLite database
-conn = sqlite3.connect("movies.db", check_same_thread=False)
+conn = sqlite3.connect("movie.db", check_same_thread=False)
 cursor = conn.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS movie (daytime TEXT NOT NULL, mood TEXT NOT NULL)")
 cursor.execute("INSERT INTO movie (daytime, mood) VALUES ('test','test' )")
@@ -81,9 +81,8 @@ def movies():
 
         # Get back, next:
         button_id = request.form.get("button-id")
-        i_str = request.form.get("i", "")  # Get the value of i from the form data, defaulting to an empty string
+        i_str = request.form.get("i", "") 
 
-        # Validate and parse i
         try:
             i = int(i_str)
         except ValueError:
@@ -119,7 +118,6 @@ def movies():
             37: "Western"
         }
 
-        # Get data from sqlite3
         cursor.execute("SELECT daytime FROM movie")
         daytime_db = cursor.fetchone()[0]
         cursor.execute("SELECT mood FROM movie")
@@ -128,305 +126,112 @@ def movies():
         
         if daytime_db == "🌤 MORNING":
             if mood_db == "😁 HAPPY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=14,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=14,35")          
  
             if mood_db == "😌 RELAXED":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=12,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-            
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=12,35")
+                      
             if mood_db == "🤧 SICK":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=16,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-            
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=16,35")
+                      
             if mood_db == "🥰 ROMANTIC":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10749,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=10749,35")
+              
             if mood_db == "😥 SAD":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=18,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=18,35")
+               
             if mood_db == "😡 ANGRY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=28,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=28,35")
+             
             if mood_db == "😙 CHILL":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10402,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=10402,35")
+               
             if mood_db == "😂 HUMOROUS":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=9648,35")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=9648,35")
+            
+            title_db = response.json()['results'][i]['original_title']
+            date_db = response.json()['results'][i]['release_date']
+            poster_db = response.json()['results'][i]['poster_path']
+            genresid_db = response.json()['results'][i]['genre_ids']
+            description_db = response.json()['results'][i]['overview']
 
-                genres = [genreslib[id] for id in genresid_db]
+            genres = [genreslib[id] for id in genresid_db]
 
-                length_db = len(response.json()['results'])
+            length_db = len(response.json()['results'])
 
 
 
         if daytime_db == "☀️ NOON":
             if mood_db == "😁 HAPPY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=14,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=14,28")               
  
             if mood_db == "😌 RELAXED":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=12,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-            
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=12,28")
+                          
             if mood_db == "🤧 SICK":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=16,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=16,28")           
             
             if mood_db == "🥰 ROMANTIC":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10749,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=10749,28")            
 
             if mood_db == "😥 SAD":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=18,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=18,28")            
 
             if mood_db == "😡 ANGRY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=28,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=28,28")
+               
             if mood_db == "😙 CHILL":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10402,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=10402,28")           
 
             if mood_db == "😂 HUMOROUS":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=9648,28")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=9648,28")
+            
+            title_db = response.json()['results'][i]['original_title']
+            date_db = response.json()['results'][i]['release_date']
+            poster_db = response.json()['results'][i]['poster_path']
+            genresid_db = response.json()['results'][i]['genre_ids']
+            description_db = response.json()['results'][i]['overview']
 
-                genres = [genreslib[id] for id in genresid_db]
+            genres = [genreslib[id] for id in genresid_db]
 
-                length_db = len(response.json()['results'])
+            length_db = len(response.json()['results'])
 
 
 
         if daytime_db == "🌙 NIGHT":
             if mood_db == "😁 HAPPY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=14,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=14,53")
  
             if mood_db == "😌 RELAXED":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=12,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-            
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=12,53")
+                
             if mood_db == "🤧 SICK":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=16,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=16,53")
             
             if mood_db == "🥰 ROMANTIC":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10749,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=10749,53")
+               
             if mood_db == "😥 SAD":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=18,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=18,53")
 
             if mood_db == "😡 ANGRY":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=28,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=28,53")
 
             if mood_db == "😙 CHILL":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=10402,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-
-            if mood_db == "😂 HUMOROUS":
-                response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=your_api_key_here&with_genres=9648,53")
-                title_db = response.json()['results'][i]['original_title']
-                date_db = response.json()['results'][i]['release_date']
-                poster_db = response.json()['results'][i]['poster_path']
-                genresid_db = response.json()['results'][i]['genre_ids']
-                description_db = response.json()['results'][i]['overview']
-
-                genres = [genreslib[id] for id in genresid_db]
-
-                length_db = len(response.json()['results'])
-            
-
-
-            
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=10402,53")
                 
+            if mood_db == "😂 HUMOROUS":
+                response = requests.get(f"https://api.themoviedb.org/3/discover/movie?api_key={TMDB_API_KEY}&with_genres=9648,53")
+            title_db = response.json()['results'][i]['original_title']
+            date_db = response.json()['results'][i]['release_date']
+            poster_db = response.json()['results'][i]['poster_path']
+            genresid_db = response.json()['results'][i]['genre_ids']
+            description_db = response.json()['results'][i]['overview']
 
-   
+            genres = [genreslib[id] for id in genresid_db]
+
+            length_db = len(response.json()['results'])
+            
 
         return render_template("movies.html", mood = mood_db, daytime = daytime_db, title = title_db, genres = genres, poster = poster_db, date = date_db, description = description_db, i_val = i, length = length_db)
     
