@@ -1,5 +1,12 @@
 # Mood Flicks
 
+<p align="center">
+  <img src="./images-for-readme/page1.jpg" alt="Image 1" width="200">
+  <img src="./images-for-readme/page2.jpg" alt="Image 2" width="200">
+  <img src="./images-for-readme/page3.jpg" alt="Image 3" width="200">
+  <img src="./images-for-readme/page4.jpg" alt="Image 4" width="200">
+</p>
+
 ## Description
 
 Mood Flicks is a web application that recommends movies based on the user's current mood and time of day. Built with Flask, it integrates The Movie Database (TMDB) API to provide personalized movie suggestions.
