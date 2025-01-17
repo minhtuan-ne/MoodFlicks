@@ -10,7 +10,7 @@ app.config['DEBUG'] = True
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
-load_dotenv
+load_dotenv()
 
 TMDB_API_KEY = os.environ.get("TMDB_API_KEY")
 
